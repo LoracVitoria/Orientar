@@ -163,6 +163,7 @@ public class Sistema {
         } catch (Exception companhia) {
             System.out.println("Formato inválido...");
         }
+    }
 
         //4
         public void listarVoo () {
@@ -236,7 +237,7 @@ public class Sistema {
         }
 
     }
-}
+
 
 
 
