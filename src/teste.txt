@@ -1,0 +1,70 @@
+Voo v1 = new Voo();
+        v1.setDestino("New York");
+        v1.setSaida("Rio de Janeiro");
+        v1.setNumVoo(123);
+        listaVoo.add(v1);
+
+    Voo v2 = new Voo();
+        v2.setDestino("Recife");
+        v2.setSaida("Rio de Janeiro");
+        v2.setNumVoo(444);
+        listaVoo.add(v2);
+
+    Voo v3 = new Voo();
+        v3.setDestino("Dubai");
+        v3.setSaida("São Paulo");
+        v3.setNumVoo(666);
+        listaVoo.add(v3);
+
+         ArrayList<Passageiro> lista = new ArrayList<Passageiro>();
+            ArrayList<Voo> listaVoo = new ArrayList<Voo>();
+            ArrayList<Companhia> listaCompany = new ArrayList<Companhia>();
+            Iterator<Passageiro> it = lista.iterator();
+            Iterator<Voo> it2 = listaVoo.iterator();
+            Iterator<Voo> it4 = listaVoo.iterator();
+            Iterator<Companhia> it3 = listaCompany.iterator();
+
+
+
+
+
+             public void cadastrarPas() {
+            //
+            //        Passageiro p1 = new Passageiro();
+            //
+            //        p1.setCpf("123.123.123-12");
+            //        p1.setNome("Marcos");
+            //        p1.setVoo(123);
+            //        p1.setAcento(20);
+            //        lista.add(p1);
+            //
+            //        Passageiro p2 = new Passageiro();
+            //        p2.setCpf("234.234.234-23");
+            //        p2.setNome("Ana");
+            //        p2.setVoo(444);
+            //        p2.setAcento(1);
+            //        lista.add(p2);
+            //
+            //        Passageiro p3 = new Passageiro();
+            //        p3.setCpf("345.345.345-34");
+            //        p3.setNome("Lucas");
+            //        p3.setVoo(666);
+            //        p3.setAcento(12);
+            //        lista.add(p3);
+            //    }
+
+
+             Companhia c1 = new Companhia();
+                    c1.setNome("Azul");
+                    c1.setCnpj("09.305.994/0001-29");
+                    listaCompany.add(c1);
+
+                    Companhia c2 = new Companhia();
+                    c2.setNome("Gol");
+                    c2.setCnpj("06.164.253/0001-87");
+                    listaCompany.add(c2);
+
+                    Companhia c3 = new Companhia();
+                    c3.setNome("Latam");
+                    c3.setCnpj("33.937.681/0001-78");
+                    listaCompany.add(c3);
