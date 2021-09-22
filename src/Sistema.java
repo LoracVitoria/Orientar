@@ -165,76 +165,76 @@ public class Sistema {
         }
     }
 
-        //4
-        public void listarVoo () {
+    //4
+    public void listarVoo () {
+        System.out.println("------------------------");
+        System.out.println("Relatório de Voos");
+        for (int i = 0; i < this.companhia.getQtdeVoos(); i++) {
+            String linha = "Numero: " + this.companhia.getVoos(i).getNumVoo();
+            System.out.print(linha);
+
+            linha = " - Saída: " + this.companhia.getVoos(i).getSaida();
+            System.out.print(linha);
+
+            linha = " - Destino: " + this.companhia.getVoos(i).getDestino();
+            System.out.print(linha + "\n");
+        }
+
+    }
+    //5
+    public void listarComp () {
+        System.out.println("------------------------");
+        System.out.println("Companhias");
+        for(int i = 0; i < this.companhia.getQtdeVoos(); i++){
+            String linha = "Nome: " + this.companhia.getVoos(i).getNome();
+            System.out.print(linha);
+
+            linha = " - CNPJ: " + this.companhia.getVoos(i).getCnpj();
+            System.out.print(linha);
+        }
+    }
+
+    //7
+    public void listarAcenLiv (Integer vooX){
+        System.out.println("------------------------");
+        Integer vagas = this.companhia.getQtdeVoos();
+        System.out.println("Quantidade de acentos vagos: " + vagas);
+    }
+
+    //6
+    public void consultarVoo ( int op){
+        try {
             System.out.println("------------------------");
-            System.out.println("Relatório de Voos");
+            System.out.println("Consulta de Voo");
+            System.out.println("Informe o numero da Voo: ");
+            int numVoo = Integer.parseInt(this.br.readLine());
+            boolean achou = false;
+
+
             for (int i = 0; i < this.companhia.getQtdeVoos(); i++) {
-                String linha = "Numero: " + this.companhia.getVoos(i).getNumVoo();
-                System.out.print(linha);
+                Voo voo = this.companhia.getVoos(i);
+                if (voo.getNumVoo() == numVoo) {
+                    System.out.println("Passageiros do Voo:");
+                    int acento = 0;
+                    while (voo.getVetPassageiro(acento) != null) {
+                        String linha = "Saída: " + voo.getSaida();
+                        System.out.print(linha);
 
-                linha = " - Saída: " + this.companhia.getVoos(i).getSaida();
-                System.out.print(linha);
-
-                linha = " - Destino: " + this.companhia.getVoos(i).getDestino();
-                System.out.print(linha + "\n");
-            }
-
-        }
-        //5
-        public void listarComp () {
-            System.out.println("------------------------");
-            System.out.println("Companhias");
-            for(int i = 0; i < this.companhia.getQtdeVoos(); i++){
-                String linha = "Nome: " + this.companhia.getVoos(i).getNome();
-                System.out.print(linha);
-
-                linha = " - CNPJ: " + this.companhia.getVoos(i).getCnpj();
-                System.out.print(linha);
-            }
-        }
-
-        //7
-        public void listarAcenLiv (Integer vooX){
-            System.out.println("------------------------");
-            Integer vagas = this.companhia.getQtdeVoos();
-            System.out.println("Quantidade de acentos vagos: " + vagas);
-        }
-
-        //6
-        public void consultarVoo ( int op){
-            try {
-                System.out.println("------------------------");
-                System.out.println("Consulta de Voo");
-                System.out.println("Informe o numero da Voo: ");
-                int numVoo = Integer.parseInt(this.br.readLine());
-                boolean achou = false;
-
-
-                for (int i = 0; i < this.companhia.getQtdeVoos(); i++) {
-                    Voo voo = this.companhia.getVoos(i);
-                    if (voo.getNumVoo() == numVoo) {
-                        System.out.println("Passageiros do Voo:");
-                        int acento = 0;
-                        while (voo.getVetPassageiro(acento) != null) {
-                            String linha = "Saída: " + voo.getSaida();
-                            System.out.print(linha);
-
-                            linha = " - Destino: " + voo.getDestino();
-                            System.out.println(linha);
-                            acento++;
-                        }
-                        achou = true;
-                        break;
+                        linha = " - Destino: " + voo.getDestino();
+                        System.out.println(linha);
+                        acento++;
                     }
+                    achou = true;
+                    break;
                 }
-                if (!achou) {
-                    System.out.println("Voo não encontrada");
-                }
-            } catch (Exception companhia) {
-                System.out.println("Formato inválido...");
             }
+            if (!achou) {
+                System.out.println("Voo não encontrada");
+            }
+        } catch (Exception companhia) {
+            System.out.println("Formato inválido...");
         }
+    }
 
     }
 
