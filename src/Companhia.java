@@ -6,14 +6,14 @@ public class Companhia {
     private Integer qtdeVoos;
 
 
-    public Voo[] getVoos(int i) {
+    public Voo getVoos(int i) {
         return this.voos[i];
     }
 
-    public void setVoos(Voo voos) {
+    public void setVoos(Voo voo) {
         this.setQtdeVoos(this.getQtdeVoos() + 1);
         int pos = this.getQtdeVoos() - 1;
-        this.voos[pos] = voos;
+        this.voos[pos] = voo;
     }
 
     public Integer getQtdeVoos() {

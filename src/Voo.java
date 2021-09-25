@@ -6,17 +6,17 @@ public class Voo {
     private Passageiro[] vetPassageiro;
 
 
-
     public Voo() {
         this.vetPassageiro = new Passageiro[25];
+
     }
 
-    public Passageiro[] getVetPassageiro(int acentoPas) {
-        return vetPassageiro;
+    public Passageiro getVetPassageiro(int acentoPas) {
+        return this.vetPassageiro[acentoPas];
     }
 
-    public void setVetPassageiro(int acentoPas ,Passageiro[] vetPassageiro) {
-        this.vetPassageiro = vetPassageiro;
+    public void setVetPassageiro(int acentoPas , Passageiro passageiro) {
+        this.vetPassageiro[acentoPas] = passageiro;
     }
 
     public String getDestino() {
