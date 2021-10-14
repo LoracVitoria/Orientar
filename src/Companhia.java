@@ -2,27 +2,20 @@ public class Companhia {
 
     private String nome;
     private String cnpj;
-    private Voo[] voos;
-    private Integer qtdeVoos;
+    private Voo[] vetVoos;
 
+    public Companhia(){
 
-    public Voo getVoos(int i) {
-        return this.voos[i];
+    }
+    public Voo getVoos(Integer i) {
+        return this.vetVoos[i];
     }
 
-    public void setVoos(Voo voo) {
-        this.setQtdeVoos(this.getQtdeVoos() + 1);
-        int pos = this.getQtdeVoos() - 1;
-        this.voos[pos] = voo;
+    public void setVoos(Voo voos,Integer i) {
+        this.vetVoos[i] = voos;
     }
 
-    public Integer getQtdeVoos() {
-        return qtdeVoos;
-    }
 
-    public void setQtdeVoos(Integer qtdeVoos) {
-        this.qtdeVoos = qtdeVoos;
-    }
 
     public String getNome() {
         return nome;

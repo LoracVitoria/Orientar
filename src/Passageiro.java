@@ -3,7 +3,7 @@ public class Passageiro {
     private String nome;
     private String cpf;
     private Integer fone;
-    private Integer acento;
+
     private Integer voo;
 
 
@@ -31,13 +31,7 @@ public class Passageiro {
         this.fone = n;
     }
 
-    public Integer getAcento() {
-        return acento;
-    }
 
-    public void setAcento(Integer acento) {
-        this.acento = acento;
-    }
 
     public Integer getVoo() {
         return voo;

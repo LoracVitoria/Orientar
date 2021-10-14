@@ -3,11 +3,12 @@ public class Voo {
     private String destino;
     private String saida;
     private Integer numVoo;
+    private Integer acento;
     private Passageiro[] vetPassageiro;
 
 
     public Voo() {
-        this.vetPassageiro = new Passageiro[25];
+        this.vetPassageiro = new Passageiro[2];
 
     }
 
@@ -43,4 +44,11 @@ public class Voo {
         this.numVoo = numVoo;
     }
 
+    public Integer getAcento() {
+        return acento;
+    }
+
+    public void setAcento(Integer acento) {
+        this.acento = acento;
+    }
 }
