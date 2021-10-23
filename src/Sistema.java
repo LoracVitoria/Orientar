@@ -89,7 +89,7 @@ public class Sistema {
 //
 
 
-    //2
+    //1
     public void cadastrarVoo() {
         try {
             Voo voo = new Voo();
@@ -128,16 +128,21 @@ public class Sistema {
 
                 System.out.println("\n----------------------");
                 System.out.println("Passageiro cadastrado com sucesso!");
-                this.companhia.setVoos(voo,i);
+
+                voo.setVetPassageiro(i,passageiro);
+
             }
 
 
+            this.companhia.setVoos(voo,0);
+
+
         } catch (Exception e1) {
-//            System.out.println("Formato inválido... " + e1);
+            System.out.println("Formato inválido... " + e1);
         }
     }
 
-//3
+    //2
     public void cadastrarComp() {
         try {
             Companhia companhia = new Companhia();
@@ -159,7 +164,7 @@ public class Sistema {
         }
     }
 
-    //4
+    //3
     public void listarVoo () {
         System.out.println("------------------------");
         System.out.println("Relatório de Voos");
@@ -175,7 +180,7 @@ public class Sistema {
         }
 
     }
-    //5
+    //4
     public void listarComp () {
         System.out.println("------------------------");
         System.out.println("Companhias");
@@ -188,13 +193,13 @@ public class Sistema {
         }
     }
 
-    //6
+    //5
     public void consultarVoo (){
         try {
             System.out.println("------------------------");
             System.out.println("Consulta de Voo");
-            System.out.println("Informe o numero da Voo: ");
-            Integer numVoo = Integer.parseInt(this.br.readLine());
+            System.out.println("Informe o numero do Voo: ");
+            Integer numVoo = 1; //Integer.parseInt(this.br.readLine());
             boolean achou = false;
 
             Voo voo;
@@ -221,10 +226,11 @@ public class Sistema {
             }
         } catch (Exception e1) {
             System.out.println("Formato inválido...");
+            System.out.println(e1.getMessage());
         }
     }
 
-    //7
+    //6
     public void listarAcenLiv (Integer vooX){
         System.out.println("------------------------");
         Integer vagas = 0;
