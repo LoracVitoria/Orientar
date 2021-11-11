@@ -8,7 +8,7 @@ public class Voo {
 
 
     public Voo() {
-        this.vetPassageiro = new Passageiro[2];
+        this.vetPassageiro = new Passageiro[25];
 
     }
 

@@ -89,7 +89,7 @@ public class Sistema {
 //
 
 
-    //2
+    //1
     public void cadastrarVoo() {
         try {
             Voo voo = new Voo();
@@ -104,12 +104,9 @@ public class Sistema {
             System.out.println("Destino: ");
             String destino = this.br.readLine();
             voo.setDestino(destino);
-            System.out.println("Acento: ");
-            String acentoPas = this.br.readLine();
-            voo.setAcento(Integer.parseInt(acentoPas));
+
             System.out.println("\n----------------------");
             System.out.println("Voo cadastrado com sucesso!");
-
 
             for (int i = 0; i < 2; i++) {
                 System.out.println("\n----------------------");
@@ -125,19 +122,27 @@ public class Sistema {
                 System.out.println("Número de telefone: ");
                 String fonePas = this.br.readLine();
                 passageiro.setFone(Integer.parseInt(fonePas));
+                System.out.println("Acento: ");
+                String acentoPas = this.br.readLine();
+                voo.setAcento(Integer.parseInt(acentoPas));
+
 
                 System.out.println("\n----------------------");
                 System.out.println("Passageiro cadastrado com sucesso!");
-                this.companhia.setVoos(voo,i);
+
+                voo.setVetPassageiro(i,passageiro);
             }
 
 
+            this.companhia.setVoos(voo);//aqui
+            //System.out.println("this.companhia.setVoos... " + voo);
+
         } catch (Exception e1) {
-//            System.out.println("Formato inválido... " + e1);
+            System.out.println("Formato inválido... " + e1);
         }
     }
 
-//3
+    //2
     public void cadastrarComp() {
         try {
             Companhia companhia = new Companhia();
@@ -159,7 +164,7 @@ public class Sistema {
         }
     }
 
-    //4
+    //3
     public void listarVoo () {
         System.out.println("------------------------");
         System.out.println("Relatório de Voos");
@@ -175,7 +180,7 @@ public class Sistema {
         }
 
     }
-    //5
+    //4
     public void listarComp () {
         System.out.println("------------------------");
         System.out.println("Companhias");
@@ -188,43 +193,59 @@ public class Sistema {
         }
     }
 
-    //6
+    //5
     public void consultarVoo (){
         try {
             System.out.println("------------------------");
             System.out.println("Consulta de Voo");
-            System.out.println("Informe o numero da Voo: ");
+            System.out.println("Informe o numero do Voo: ");
             Integer numVoo = Integer.parseInt(this.br.readLine());
             boolean achou = false;
 
             Voo voo;
-            for (int i = 0; i < 3; i++) {
+            Passageiro pas;
 
+            for (int i = 0; i < this.companhia.getQtdeVoos(); i++) {//aqui
+
+                //if(this.companhia.getVoos(2) == null){System.out.println("nulooo");}
                 voo = this.companhia.getVoos(i);
+
                 if (voo.getNumVoo() == numVoo) {
                     System.out.println("Passageiros do Voo:");
                     int acento = 0;
-                    while (voo.getVetPassageiro(acento) != null) {
+                    //System.out.println("aqui" + voo.getVetPassageiro(acento));
+                    while (voo.getVetPassageiro(acento) != null) {//aqui
+                        System.out.println("Acento: " + acento);
                         String linha = "Saída: " + voo.getSaida();
                         System.out.print(linha);
 
                         linha = " - Destino: " + voo.getDestino();
                         System.out.println(linha);
                         acento++;
+
+                        pas = voo.getVetPassageiro(acento);
+
+
+                        System.out.println("Passageiro: " + pas.getNome());
+                        System.out.println("CPF: " + pas.getCpf());
+                        System.out.println("Telefone: " + pas.getFone());
+
                     }
                     achou = true;
                     break;
                 }
+                System.out.println("teste2");
             }
             if (!achou) {
                 System.out.println("Voo não encontrado!");
             }
         } catch (Exception e1) {
             System.out.println("Formato inválido...");
+            System.out.println(e1);
         }
     }
 
-    //7
+    //6
     public void listarAcenLiv (Integer vooX){
         System.out.println("------------------------");
         Integer vagas = 0;
@@ -232,7 +253,7 @@ public class Sistema {
             if (this.companhia.getVoos(i).getNumVoo() == vooX){
                 for (Integer iPas = 0 ; iPas < 25 ; iPas++) {
                     if (this.companhia.getVoos(i).getVetPassageiro(iPas)==null)
-                     vagas++;
+                        vagas++;
                 }
             }
         }
