@@ -254,6 +254,8 @@ public class Sistema {
                 for (Integer iPas = 0 ; iPas < 25 ; iPas++) {
                     if (this.companhia.getVoos(i).getVetPassageiro(iPas)==null)
                         vagas++;
+
+
                 }
             }
         }
